@@ -1,19 +1,21 @@
 import React from 'react';
 import {View,Text,StyleSheet} from 'react-native'
-import Show from './pages/Show'
+import Header from './components/Header';
+import MainScreen from './screens/MainScreen'
 
 
 function App()
 {
   return (
   <View style={styles.body}>
-    <Show />
+    <Header title="Guess A number" />
+    <MainScreen />
   </View>)
 }
 
 const styles = StyleSheet.create({
   body:{
-    width:'100%',
+   flex:1,
   }
 })
 

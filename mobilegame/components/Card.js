@@ -15,9 +15,7 @@ const Card = props =>{
 const styles = StyleSheet.create({
 
     inputContainer:{
-        width:300,
-      maxWidth:'80%',
-      alignItems:'center',
+    
       //   shadowColor:'red',
       //   shadowOffset:{width:0,height:2},
       //   shadowRadius:6,

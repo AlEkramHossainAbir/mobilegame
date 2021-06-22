@@ -1,22 +1,34 @@
-import React from 'react';
-import {View, Text, StyleSheet, TextInput, Button} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TextInput, Button, Alert} from 'react-native';
 import Body from '../components/Body';
 import Card from '../components/Card';
 import Input from '../components/Input';
-const Show = props => {
+const MainScreen = props => {
+
+  const [enteredValue,setEnteredValue] = useState('');
+  const numberInputHandler = inputText =>{
+    setEnteredValue(inputText.replace(/[^0-9]/g,''));
+    Alert.alert('inpuText '+ inputText)
+  };
+
   return (
     <View style={styles.screen}>
       <Text style={styles.headText}>Start A new game!</Text>
       <Card style={styles.inputContainer}>
         <Text>Select A number</Text>
-        <Input style={styles.txtInput} blurOnSubmit />
+        <Input
+          style={styles.txtInput}
+          blurOnSubmit
+          autoCorrect={false}
+          autoCapitalize='none'
+          maxLength={2}
+          keyboardType="number-pad"
+          onChangeText={numberInputHandler}
+          value={enteredValue}
+        />
         <View style={styles.btnContainer}>
           <View style={styles.btn}>
-            <Button
-              title="Reset"
-              onPress={() => {}}
-              color="red"
-            />
+            <Button title="Reset" onPress={() => {}} color="red" />
           </View>
           <View style={styles.btn}>
             <Button title="Confirm" onPress={() => {}} color="#f7287b" />
@@ -46,7 +58,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   txtInput: {
-   textAlign:'center',
+    textAlign: 'center',
   },
   btnContainer: {
     flexDirection: 'row',
@@ -55,9 +67,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   btn: {
-    borderRadius:10,
-   
+    borderRadius: 10,
   },
 });
 
-export default Show;
+export default MainScreen;

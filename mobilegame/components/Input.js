@@ -8,7 +8,7 @@ import {
 const Input = props =>{
     return(
         <View>
-        <TextInput style={{...styles.Input,...props.style}} keyboardType='number-pad' maxLength={2} />
+        <TextInput {...props} style={{...styles.Input,...props.style}} />
         </View>
     )
 }
